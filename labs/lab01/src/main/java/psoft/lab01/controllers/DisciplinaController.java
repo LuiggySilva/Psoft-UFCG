@@ -31,7 +31,12 @@ public class DisciplinaController {
 	
 	@PostMapping("/disciplinas/lista")
 	public ResponseEntity<Collection<Disciplina>> addDisciplinas(@RequestBody List<DTODisciplina> ds) {
-		return new ResponseEntity<Collection<Disciplina>>(this.DS.addDisciplina(ds), HttpStatus.OK);
+		if(ds.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		else {
+			return new ResponseEntity<Collection<Disciplina>>(this.DS.addDisciplina(ds), HttpStatus.OK);
+		}
 	}
 	
 	@RequestMapping("/disciplinas/{id}")
