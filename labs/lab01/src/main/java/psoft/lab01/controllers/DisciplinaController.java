@@ -1,6 +1,8 @@
 package psoft.lab01.controllers;
 
 import java.util.Collection;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +29,11 @@ public class DisciplinaController {
 		return new ResponseEntity<Disciplina>(this.DS.addDisciplina(ds.getNome(), ds.getNota()), HttpStatus.OK);
 	}
 	
+	@PostMapping("/disciplinas/lista")
+	public ResponseEntity<Collection<Disciplina>> addDisciplinas(@RequestBody List<DTODisciplina> ds) {
+		return new ResponseEntity<Collection<Disciplina>>(this.DS.addDisciplina(ds), HttpStatus.OK);
+	}
+	
 	@RequestMapping("/disciplinas/{id}")
 	public ResponseEntity<Disciplina> getDisciplina(@PathVariable("id") String id) {
 		Disciplina res = this.DS.getDisciplina(Integer.parseInt(id));
@@ -35,6 +42,17 @@ public class DisciplinaController {
 		}
 		else {
 			return new ResponseEntity<Disciplina>(res, HttpStatus.OK);
+		}
+	}
+	
+	@RequestMapping("/disciplinas/byNota{relacao}/{nota}")
+	public ResponseEntity<List<Disciplina>> getDisciplinasByNota(@PathVariable("nota") String nota, @PathVariable("relacao") String relacao) {
+		List<Disciplina> res = this.DS.getByNota(relacao, Double.parseDouble(nota));
+		if(res == null) {
+			return new ResponseEntity<List<Disciplina>>(HttpStatus.NOT_FOUND);
+		}
+		else {
+			return new ResponseEntity<List<Disciplina>>(res, HttpStatus.OK);
 		}
 	}
 	
