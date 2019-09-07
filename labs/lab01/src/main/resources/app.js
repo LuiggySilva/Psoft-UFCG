@@ -1,4 +1,5 @@
 let URL = 'https://lab01-projsw-ufcg.herokuapp.com/api/disciplinas';
+//let URL = 'http://localhost:1357/v1/api/disciplinas';
 let disciplinas = [];
 
 function removerDisciplina(id) {
@@ -45,9 +46,9 @@ function put_disciplina() {
     console.log(alteracao.value);
 
     if(tipoMudancaNome.checked){
-        fetch(URL + '/' + disciplinaID + '/nome', {
+        fetch(URL + '/' + disciplinaID.value + '/nome', {
             'method': 'PUT',
-            'body': `{"nome": "${alteracao.value}"}`,
+            'body': JSON.stringify({"nome":alteracao.value}),
             'headers': { 'Content-Type': 'application/json' }
         })
             .then(response => response.json())
@@ -61,10 +62,10 @@ function put_disciplina() {
             })    
     }
     else if(tipoMudancaNota.checked){
-        fetch(URL + '/' + disciplinaID + '/nome', {
+        fetch(URL + '/' + disciplinaID.value + '/nota', {
             'method': 'PUT',
-            'body': `{"nota": ${alteracao.value}}`,
-            'headers': { 'Content-Type': 'application/json' }
+            'body': JSON.stringify({"nota":alteracao.value}),
+            'headers': { 'Content-Type': 'application/json'}
         })
             .then(response => response.json())
             .then(dados => {
@@ -84,7 +85,7 @@ function post_disciplinas() {
     fetch(URL, {
         'method': 'POST',
         'body': `{"nome": "${nome.value}", "nota": ${nota.value}}`,
-        'headers': { 'Content-Type': 'application/json' }
+        'headers': { 'Content-Type': 'application/json'}
     })
         .then(response => response.json())
         .then(dados => {
