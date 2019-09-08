@@ -1,86 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style>
-        .removerDisciplina {
-            color:red;
-        }
-
-        #listaDisciplinas {
-            color:black;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 20px;
-        }
-        .disciplinasTable{
-            width: 200px;
-        }
-        td {
-            width: 300px;
-        }
-        h4 {
-            text-decoration: underline;
-        }
-        .Titulo {
-            text-decoration: underline;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 20px;
-        }
-        #box-1 {
-            border-right: solid black;
-        }
-    </style>
-    <title>DISCIPLINAS UFCG</title>
-    
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="style.css">
+	<title> Disciplinas UFCG</title>
 </head>
 <body>
+	<script type="module" src="app.js"> </script>
+	<div id="all-box">
+		<div id=head-box>
+			<p id="titulo"> Disciplinas UFCG</p>
+		</div>
+		<div id="content-box">
+			<div id="menu-add" class="flex-item">
+				<p class="op">Cadastrar Disciplina</p>
+				<strong>Disciplina:</strong>
+				<p> <input id="nome" type="text" autocomplete="off"></p>
+				<strong>Nota:</strong>
+				<p> <input id="nota" type="text" autocomplete="off"></p>
+				<button id="cadastrarDisciplina"> Cadastrar </button>   
+			</div>
 
-    <script type="module" src="app.js"></script>
-    <h1 style="text-align: center"> Sistema de disciplinas </h1> 
-    <hr>
-    <div id="disciplinas" style="text-align: center"></div>
-    <br>
-    <hr>
+			<div id="disciplinas" class="flex-item">
+				
+			</div>
 
-    <table align="center">
-        <tr>
-            <td>
-                <div align="center" class="Titulo">
-                    <strong style="text-align: center">Cadastrar Disciplina:</strong>
-                </div>
-        
-            </td>
-            <td>
-                <div align="center" class="Titulo">
-                    <strong>Alterar Disciplina:</strong>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td id="box-1"> 
-                <div align="center">
-                    <strong>Disciplina:</strong>
-                    <p> <input id="nome" type="text"></p>
-                    <strong>Nota:</strong>
-                    <p> <input id="nota" type="text"></p>
-                    <button id="cadastrarDisciplina"> Cadastrar </button>       
-                </div>
-
-            </td>
-            <td id="box-2">
-                <div align="center">
-                    <p> <strong> Identificador: </strong> <br> <input id="idDisciplina" type="text"/> </p>
-                    <p> <strong> Alteração: </strong> <br> <input id="alteracao" type="text"/> </p>
-                    <p> <input type="radio" name="tipoAlteracao" id="nomeEdit" checked=""/> Nome </p>
-                    <p> <input type="radio" name="tipoAlteracao" id="notaEdit" checked=""/> Nota </p>
-                    <button id="editarDisciplina"> Editar </button>       
-                </div>
-            </td>
-        </tr>
-    </table>
-    <hr>
-
+			<div id="menu-edit" class="flex-item">
+				<p class="op">Editar Disciplina</p>
+				<strong> Identificador: </strong>
+				<p> <input id="idDisciplina" type="number" autocomplete="off"/> </p>
+				<strong> Alteração: </strong>
+				<p> <input id="alteracao" type="text" autocomplete="off"/> </p>
+				<p> <input type="radio" name="tipoAlteracao" id="nomeEdit" checked=""/> Nome
+					<input type="radio" name="tipoAlteracao" id="notaEdit" checked=""/> Nota </p>
+				<button id="editarDisciplina"> Editar </button>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

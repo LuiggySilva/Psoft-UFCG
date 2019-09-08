@@ -16,7 +16,7 @@ function removerDisciplina(id) {
 window.removerDisciplina = removerDisciplina;
 
 function show_disciplina($box) {
-    let table = "<table align='center' id='listaDisciplinas'> <tr> <td> <h4>ID:</h4> </td> <td> <h4>Nome:</h4> </td> <td> <h4>Nota:</h4> </td> <td> <h4>Remover</h4> </td> </tr>";
+    let table = "<table align='center' id='listaDisciplinas'> <tr> <td> <h4>ID:</h4> </td> <td> <h4>Nome:</h4> </td> <td> <h4>Nota:</h4> </td> <td> <h4>Remover:</h4> </td> </tr>";
 
     disciplinas.forEach(element => {
         let removeButton = '<button class="removerDisciplina" onclick = "removerDisciplina('+ element.id +')"> X </button>';
