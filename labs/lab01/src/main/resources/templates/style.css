@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+}
+
+#head-box {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 60px;
+    text-decoration: underline;
+    text-align: center;
+    background-image: linear-gradient(to bottom right, rgb(61, 61, 206), rgb(40, 47, 96));
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    color: beige;
+}
+
+#menu-add,#menu-edit,#disciplinas {
+    margin-top: 210px;
+}
+
+#content-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#menu-add {
+    width: 200px;
+    height: 400px;
+    padding: 10px;
+    text-align: center;
+}
+
+#menu-edit {
+    width: 200px;
+    height: 400px;
+    padding: 10px;
+    text-align: center;
+}
+
+#disciplinas {
+    border: solid 1px black;
+    width: 850px;
+    height: 400px;
+    padding: 10px;
+    text-align: center;
+    overflow:scroll;
+    overflow-x:auto;
+    overflow-y:auto;
+}
+
+#idDisciplina,#alteracao,#editarDisciplina {
+    width: 150px;
+}
+
+#nome,#nota,#cadastrarDisciplina {
+    width: 150px;
+}
+
+.removerDisciplina {
+    color:red;
+    border-radius:10px; 
+}
+.removerDisciplina:hover {
+    color:red;
+    background-color: rgb(187, 178, 178);
+    border-radius:10px; 
+}
+
+#listaDisciplinas {
+    color:black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+.disciplinasTable{
+    width: 200px;
+}
+
+td {
+    width: 300px;
+}
+
+h4 {
+    text-decoration: underline;
+}
+
+.op {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    border: solid black;
+    padding: 5px;
+    color: beige;
+    background-image: linear-gradient(to bottom right, rgb(61, 61, 206), rgb(40, 47, 96));
+}
+
+#cadastrarDisciplina:hover,#editarDisciplina:hover {
+    cursor: pointer;
+    border: solid 1px black;
+}
+
+#cadastrarDisciplina,#editarDisciplina{
+    padding: 5px;
+}
