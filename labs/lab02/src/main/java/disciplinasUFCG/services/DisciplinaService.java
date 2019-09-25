@@ -23,9 +23,7 @@ import disciplinasUFCG.util.OrdenaPorNota;
 @Service
 public class DisciplinaService {
 	
-	@SuppressWarnings("unused")
-	private int disciplinasAdicionadas = 0;
-	private DisciplinasDAO<Disciplina, Long> disciplinas;
+	DisciplinasDAO<Disciplina, Long> disciplinas;
 	
 	public DisciplinaService(DisciplinasDAO<Disciplina, Long> disciplinas) {
 		this.disciplinas = disciplinas;
@@ -50,7 +48,6 @@ public class DisciplinaService {
 	
 	public Disciplina addDisciplina(Disciplina d) {
 		this.disciplinas.save(d);
-		this.disciplinasAdicionadas++;
 		return d;
 	}
 	
