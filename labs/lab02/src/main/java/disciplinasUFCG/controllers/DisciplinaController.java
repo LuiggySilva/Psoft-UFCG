@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import disciplinasUFCG.entities.Comentario;
 import disciplinasUFCG.entities.Disciplina;
+import disciplinasUFCG.entities.DisciplinaDTO;
 import disciplinasUFCG.services.DisciplinaService;
 
 @RestController
@@ -33,8 +34,8 @@ public class DisciplinaController {
 	}
 	
 	@RequestMapping("/disciplinas")
-	public ResponseEntity<Collection<Disciplina>> getTeste() {
-		return new ResponseEntity<Collection<Disciplina>>(this.DS.getDisciplinas(), HttpStatus.OK); 
+	public ResponseEntity<Collection<DisciplinaDTO>> getTeste() {
+		return new ResponseEntity<Collection<DisciplinaDTO>>(this.DS.getDisciplinas(), HttpStatus.OK); 
 	}
 	
 	@PutMapping("/disciplinas/{id}/nota")

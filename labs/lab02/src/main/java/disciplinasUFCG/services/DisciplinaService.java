@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import disciplinasUFCG.DAOS.DisciplinasDAO;
 import disciplinasUFCG.entities.Comentario;
 import disciplinasUFCG.entities.Disciplina;
+import disciplinasUFCG.entities.DisciplinaDTO;
 import disciplinasUFCG.util.OrdenaPorLike;
 import disciplinasUFCG.util.OrdenaPorNota;
 
@@ -91,10 +92,26 @@ public class DisciplinaService {
 			return null;
 		}
 		return d.get();
+	}	
+	
+	public DisciplinaDTO getDisciplinaDTO(long id) {
+		Optional<Disciplina> d;
+		try {
+			d = this.disciplinas.findById(id);
+		} catch (Exception e) {
+			return null;
+		}
+		
+		return new DisciplinaDTO(d.get().getId(), d.get().getNome());
 	}
 	
-	public List<Disciplina> getDisciplinas() {
-		return this.disciplinas.findAll();
+	public List<DisciplinaDTO> getDisciplinas() {
+		List<Disciplina> dis = this.disciplinas.findAll();
+		List<DisciplinaDTO> disciplinaDTO = new ArrayList<DisciplinaDTO>();
+		for (Disciplina d : dis) {
+			disciplinaDTO.add(new DisciplinaDTO(d.getId(),d.getNome()));
+		}
+		return  disciplinaDTO;
 	}
 	
 	public Disciplina deletaDisciplina(long id) {

@@ -4,12 +4,10 @@ public class DisciplinaDTO {
 	
 	private long ID;
 	private String nome;
-	private double nota;
 
-	public DisciplinaDTO(long id, String nome, double nota) {
+	public DisciplinaDTO(long id, String nome) {
 		this.ID = id;
 		this.nome = nome;
-		this.nota = nota;
 	}
 
 	public long getId() {
@@ -22,13 +20,5 @@ public class DisciplinaDTO {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public double getNota() {
-		return this.nota;
-	}
-
-	public void setNota(double nota) {
-		this.nota = nota;
 	}
 }
