@@ -7,11 +7,11 @@ import javax.persistence.Id;
 @Entity
 public class Usuario {
 	
-	@Id
 	@GeneratedValue
-	private String email;
 	private String nome;
 	private String senha;
+	@Id
+	private String email;
 
 	public String getEmail() {
 		return email;

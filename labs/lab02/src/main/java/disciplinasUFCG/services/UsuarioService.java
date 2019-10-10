@@ -1,27 +1,31 @@
 package disciplinasUFCG.services;
 
+import org.springframework.stereotype.Service;
+
 import disciplinasUFCG.DAOS.UsuariosDAO;
 import disciplinasUFCG.entities.Usuario;
 import disciplinasUFCG.util.UsuarioStatus;
 
+@Service
 public class UsuarioService {
 	
-	UsuariosDAO<Usuario, String> usuarios;
+	static UsuariosDAO<Usuario, String> usuarios;
 	
-	public UsuarioService(UsuariosDAO<Usuario, String> usuarios) {
-		this.usuarios = usuarios;
+	public UsuarioService(UsuariosDAO<Usuario, String> u) {
+		usuarios = u;
 	}
 	
 	public Usuario addUsuario(Usuario u) {
-		this.usuarios.save(u);
+		usuarios.save(u);
+		System.out.println(">>> " + usuarios.findById("luiggy@email.com").get().getNome());
 		return u;
 	}
 	
 	public Usuario removeUsuario(String email) {
 		Usuario u;
 		try {
-			u = this.usuarios.findById(email).get();
-			this.usuarios.deleteById(email);
+			u = usuarios.findById(email).get();
+			usuarios.deleteById(email);
 		} catch (Exception e) {
 			return null;
 		}
@@ -31,23 +35,23 @@ public class UsuarioService {
 	public Usuario getUsuario(String email) {
 		Usuario u;
 		try {
-			u = this.usuarios.findById(email).get();
+			u = usuarios.findById(email).get();
 		} catch (Exception e) {
 			return null;
 		}
 		return u;
 	}
 	
-	public UsuarioStatus verificaUsuario(String email, String senha) {
+	public boolean verificaUsuario(String email, String senha) {
 		Usuario u = this.getUsuario(email);
 		if(u == null) {
-			return UsuarioStatus.NAO_ENCONTRADO;
+			return true;
 		}
 		else if(!u.getSenha().equals(senha)) {
-			return UsuarioStatus.SENHA_INVALIDA;
+			return true;
 		}
 		else {
-			return UsuarioStatus.ENCONTRADO;
+			return false;
 		}
 	}
 }
