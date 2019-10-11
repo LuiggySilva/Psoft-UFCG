@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -50,7 +51,7 @@ public class DisciplinaController {
 	}
 	
 	@PutMapping("/disciplinas/likes/{id}")
-	public ResponseEntity<Disciplina> setDisciplinaNota(@PathVariable("id") String id){ 
+	public ResponseEntity<Disciplina> setDisciplinaNota(@RequestHeader("Authorization") String header, @PathVariable("id") String id){ 
 		Disciplina d = this.DS.addLike(Long.parseLong(id), 1);
 		if(d == null) {
 			return new ResponseEntity<Disciplina>(HttpStatus.NOT_FOUND);
