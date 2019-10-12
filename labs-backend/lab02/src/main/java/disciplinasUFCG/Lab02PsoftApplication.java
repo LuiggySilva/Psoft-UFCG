@@ -14,7 +14,7 @@ public class Lab02PsoftApplication {
 	public FilterRegistrationBean<Filtro> filterJwt() {
 		FilterRegistrationBean<Filtro> filterRB = new FilterRegistrationBean<Filtro>();
 		filterRB.setFilter(new Filtro());
-		filterRB.addUrlPatterns("/auth/usuarios", "/disciplinas/likes/{id}", "/disciplinas/comentarios/{id}");
+		filterRB.addUrlPatterns("/auth/usuarios", "/disciplinas/likes/*", "/disciplinas/comentarios/*");
 		return filterRB;
 	}
 	

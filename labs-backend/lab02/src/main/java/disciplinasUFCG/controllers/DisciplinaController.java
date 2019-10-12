@@ -39,7 +39,7 @@ public class DisciplinaController {
 		return new ResponseEntity<Collection<DisciplinaDTO>>(this.DS.getDisciplinas(), HttpStatus.OK); 
 	}
 	
-	@PutMapping("/disciplinas/{id}/nota")
+	@PutMapping("/disciplinas/nota/{id}")
 	public ResponseEntity<Disciplina> setDisciplinaNota(@PathVariable("id") String id, @RequestBody Disciplina newNota){ 
 		Disciplina res = this.DS.setNota(Long.parseLong(id), newNota.getNota());
 		if(res == null) {

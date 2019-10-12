@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="style.css">
+	<title> Disciplinas UFCG</title>
+</head>
+<body>
+	<script type="module" src="app.js"> </script>
+	<div id="all-box">
+		<div id=head-box>
+			<p id="titulo"> Disciplinas UFCG</p>
+		</div>
+		<div id="content-box">
+			<div id="menu-add" class="flex-item">
+				<p class="op">Cadastrar Disciplina</p>
+				<strong>Disciplina:</strong>
+				<p> <input id="nome" type="text" autocomplete="off"></p>
+				<strong>Nota:</strong>
+				<p> <input id="nota" type="text" autocomplete="off"></p>
+				<button id="cadastrarDisciplina"> Cadastrar </button>   
+			</div>
+
+			<div id="disciplinas" class="flex-item">
+				
+			</div>
+
+			<div id="menu-edit" class="flex-item">
+				<p class="op">Editar Disciplina</p>
+				<strong> Identificador: </strong>
+				<p> <input id="idDisciplina" type="number" autocomplete="off"/> </p>
+				<strong> Alteração: </strong>
+				<p> <input id="alteracao" type="text" autocomplete="off"/> </p>
+				<p> <input type="radio" name="tipoAlteracao" id="nomeEdit" checked=""/> Nome
+					<input type="radio" name="tipoAlteracao" id="notaEdit" checked=""/> Nota </p>
+				<button id="editarDisciplina"> Editar </button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
