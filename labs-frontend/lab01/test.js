@@ -1,5 +1,8 @@
 let assert = require('assert');
 let disciplina = require('./scoord').disciplina;
+let turma = require('./scoord').turma;
+let professor = require('./scoord').professor;
+let estudante = require('./scoord').estudante;
 
 describe('factory Disciplina', function() {
   let d0;
@@ -37,5 +40,32 @@ describe('factory Disciplina', function() {
         }, TypeError);
         assert.equal('prog1', d0.id());
     });
+
+});
+
+describe('factory Professor', function() {
+  let p0;
+
+    before(async () => {
+        p0 = ;
+    })
+
+});
+
+describe('factory Estudante', function() {
+  let e0;
+
+    before(async () => {
+        e0 = ;
+    })
+
+});
+
+describe('factory Turma', function() {
+  let t0;
+
+    before(async () => {
+        t0 = ;
+    })
 
 });
